@@ -1,7 +1,9 @@
 const express = require('express')
+const http = require('http')
 
 module.exports = (App) => {
   App.express = express()
+  App.server = http.createServer(App.express)
 
   App.express.use(express.json())
   App.express.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
