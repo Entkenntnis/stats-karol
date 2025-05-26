@@ -47,6 +47,7 @@ module.exports = (App) => {
     }
 
     sockets.set(userId, newEntry)
+    console.log(`User ${userId} connected, total online: ${sockets.size}`)
 
     // Listen to all events to update lastActive
     socket.onAny(updateLastActive)
@@ -61,6 +62,7 @@ module.exports = (App) => {
     socket.on('disconnect', () => {
       sockets.delete(userId)
       App.io.emit('updateOnlineCount', sockets.size)
+      console.log(`User ${userId} disconnected, total online: ${sockets.size}`)
     })
   })
 }
