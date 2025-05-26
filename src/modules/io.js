@@ -66,7 +66,7 @@ module.exports = (App) => {
       console.log(`User ${userId} disconnected, total online: ${sockets.size}`)
     })
 
-    io.engine.on('connection_error', (err) => {
+    io.on('connection_error', (err) => {
       console.log(err.code) // 3
       console.log(err.message) // "Bad request"
       console.log(err.context) // { name: 'TRANSPORT_MISMATCH', transport: 'websocket', previousTransport: 'polling' }
