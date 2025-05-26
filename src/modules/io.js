@@ -2,6 +2,7 @@ const io = require('socket.io')
 
 module.exports = (App) => {
   App.io = io(App.server, {
+    path: '/backend/socket.io',
     cors: {
       origin: '*',
       methods: ['GET', 'POST'],
