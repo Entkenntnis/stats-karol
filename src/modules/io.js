@@ -47,7 +47,7 @@ module.exports = (App) => {
     }
 
     sockets.set(userId, newEntry)
-    console.log(`User ${userId} connected, total online: ${sockets.size}`)
+    // console.log(`User ${userId} connected, total online: ${sockets.size}`)
 
     // Listen to all events to update lastActive
     socket.onAny(updateLastActive)
@@ -62,13 +62,7 @@ module.exports = (App) => {
     socket.on('disconnect', () => {
       sockets.delete(userId)
       App.io.emit('updateOnlineCount', sockets.size)
-      console.log(`User ${userId} disconnected, total online: ${sockets.size}`)
-    })
-
-    App.io.on('connection_error', (err) => {
-      console.log(err.code) // 3
-      console.log(err.message) // "Bad request"
-      console.log(err.context) // { name: 'TRANSPORT_MISMATCH', transport: 'websocket', previousTransport: 'polling' }
+      // console.log(`User ${userId} disconnected, total online: ${sockets.size}`)
     })
   })
 }
