@@ -11,7 +11,7 @@ module.exports = (App, db) => {
       autoIncrement: true,
     },
     event: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1023),
       allowNull: false,
     },
     userId: {
