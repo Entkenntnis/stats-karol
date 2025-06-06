@@ -5,8 +5,8 @@ module.exports = (App) => {
   App.express = express()
   App.server = http.createServer(App.express)
 
-  App.express.use(express.json())
-  App.express.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+  App.express.use(express.json({ limit: '1mb' }))
+  App.express.use(express.urlencoded({ extended: true, limit: '1mb' })) // for parsing application/x-www-form-urlencoded
 
   // manage CORS
   App.express.use(function (req, res, next) {
