@@ -31,7 +31,7 @@ module.exports = (App, db) => {
       allowNull: false,
     },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
   })
