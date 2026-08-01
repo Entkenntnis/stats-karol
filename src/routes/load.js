@@ -3,11 +3,15 @@ export default (App) => {
     try {
       const publicId = req.params.id
       const entry = await App.db.LegacyShare.findOne({ where: { publicId } })
-      res.send(entry.content)
+      if (entry) {
+        res.send(entry.content)
+        return
+      }
+      res.status(404).send('not found')
       return
     } catch (e) {
       console.log(e)
     }
-    res.send('bad')
+    res.status(500).send('internal error')
   })
 }

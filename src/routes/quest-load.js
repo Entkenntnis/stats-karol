@@ -7,9 +7,11 @@ export default (App) => {
         res.send(entry.content)
         return
       }
+      res.status(404).send('not found')
+      return
     } catch (e) {
       console.log(e)
     }
-    res.send('bad')
+    res.status(500).send('internal error')
   })
 }

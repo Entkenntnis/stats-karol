@@ -6,6 +6,7 @@ import initIo from './modules/io.js'
 import initShareQuest from './routes/share_quest.js'
 import initQuestLoad from './routes/quest-load.js'
 import initLoad from './routes/load.js'
+import initPersistentEvent from './routes/persistent_event.js'
 
 import start from './app.js'
 
@@ -19,6 +20,7 @@ initIo(App)
 initShareQuest(App)
 initQuestLoad(App)
 initLoad(App)
+initPersistentEvent(App)
 
 start(App)
 

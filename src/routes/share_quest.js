@@ -1,26 +1,28 @@
 export default (App) => {
   App.express.post('/quest_share', async (req, res) => {
     try {
+      if (typeof req.body.content !== 'string') {
+        res.status(400).send('invalid input')
+        return
+      }
+
       let publicId = generateFriendlyUrl()
       let tries = 0
       while ((await checkIfPublicIdExists(publicId)) && tries++ < 10) {
         publicId = generateFriendlyUrl()
       }
       if (tries == 10) {
-        res.send('not able to generate unique id')
+        res.status(500).send('not able to generate unique id')
         return
       }
 
-      await App.db.QuestShare.create({
-        publicId,
-        content: typeof req.body.content === 'string' ? req.body.content : '',
-      })
+      await App.db.QuestShare.create({ publicId, content: req.body.content })
       res.send(publicId)
       return
     } catch (e) {
       console.log(e)
     }
-    res.send('bad')
+    res.status(500).send('internal error')
   })
 
   async function checkIfPublicIdExists(publicId) {
