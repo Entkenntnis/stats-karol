@@ -1,17 +1,28 @@
+import initSecrets from './modules/secrets.js'
+import initDb from './modules/db.js'
+import initExpress from './modules/express.js'
+import initIo from './modules/io.js'
+
+import initShareQuest from './routes/share_quest.js'
+import initQuestLoad from './routes/quest-load.js'
+import initLoad from './routes/load.js'
+
+import start from './app.js'
+
 const App = {}
 
-require("./modules/secrets.js")(App)
-require("./modules/db.js")(App)
-require("./modules/express.js")(App)
-require("./modules/io.js")(App)
+initSecrets(App)
+initDb(App)
+initExpress(App)
+initIo(App)
 
-require("./routes/share_quest.js")(App)
-require("./routes/quest-load.js")(App)
-require("./routes/load.js")(App)
+initShareQuest(App)
+initQuestLoad(App)
+initLoad(App)
 
-require("./app.js")(App)
+start(App)
 
 // if (process.env.SAVE2LOCAL) {
-//   require("./save2local.js")(App)
+//   import('./save2local.js').then(({ default: initSave2local }) => initSave2local(App))
 // } else {
 // }

@@ -1,4 +1,4 @@
-module.exports = (App) => {
+export default (App) => {
   App.express.get('/quest/load/:id', async (req, res) => {
     try {
       const publicId = req.params.id

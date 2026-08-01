@@ -1,4 +1,4 @@
-module.exports = (App) => {
+export default (App) => {
   void (async function start() {
     await App.db.sync()
     App.server.listen(3006, () => {

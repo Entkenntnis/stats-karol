@@ -1,7 +1,7 @@
-const io = require('socket.io')
+import { Server } from 'socket.io'
 
-module.exports = (App) => {
-  App.io = io(App.server, {
+export default (App) => {
+  App.io = new Server(App.server, {
     cors: {
       origin: '*',
       methods: ['GET', 'POST'],

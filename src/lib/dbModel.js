@@ -1,6 +1,6 @@
-const { Sequelize, DataTypes, Op } = require("sequelize")
+import Sequelize, { DataTypes, Op } from 'sequelize'
 
-module.exports = (App, db) => {
+export default (App, db) => {
   App.db = new Sequelize(db)
   App.db.Op = Op
 

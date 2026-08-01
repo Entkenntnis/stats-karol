@@ -1,4 +1,4 @@
-module.exports = (App) => {
+export default (App) => {
   App.express.post('/quest_share', async (req, res) => {
     try {
       let publicId = generateFriendlyUrl()

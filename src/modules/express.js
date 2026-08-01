@@ -1,7 +1,7 @@
-const express = require('express')
-const http = require('http')
+import express from 'express'
+import http from 'http'
 
-module.exports = (App) => {
+export default (App) => {
   App.express = express()
   App.server = http.createServer(App.express)
 

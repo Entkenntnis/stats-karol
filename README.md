@@ -5,7 +5,7 @@ Backend
 Setup `secrets.js`:
 
 ```
-module.exports = {
+export default {
   db_password: '...',
   backend_password: '...'
 }

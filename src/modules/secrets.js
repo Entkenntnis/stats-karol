@@ -1,5 +1,5 @@
-const secrets = require('../../secrets.js')
+import secrets from '../../secrets.js'
 
-module.exports = (App) => {
+export default (App) => {
   App.secrets = secrets
 }

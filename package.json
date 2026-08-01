@@ -2,9 +2,9 @@
   "name": "stats-karol",
   "version": "0.1.0",
   "description": "Backend Component of Robot Karol Online",
+  "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "save2local": "cross-env UBERSPACE=1 SAVE2LOCAL=1 node src/index.js"
+    "start": "node src/index.js"
   },
   "main": "src/index.js",
   "author": "Entkenntnis <karol@arrrg.de>",
@@ -14,9 +14,6 @@
     "mariadb": "^3.0.0",
     "sequelize": "^6.0.0",
     "socket.io": "^4.8.1"
-  },
-  "devDependencies": {
-    "cross-env": "^10.0.0"
   },
   "overrides": {
     "uuid": "11.1.1"
