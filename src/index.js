@@ -9,6 +9,7 @@ import initQuestLoad from "./routes/quest-load.js"
 import initLoad from "./routes/load.js"
 import initPersistentEvent from "./routes/persistent_event.js"
 import initMetricsRoutes from "./routes/metrics.js"
+import initExperimentEvent from "./routes/experiment_event.js"
 
 import start from "./app.js"
 
@@ -25,6 +26,7 @@ initQuestLoad(App)
 initLoad(App)
 initPersistentEvent(App)
 initMetricsRoutes(App)
+initExperimentEvent(App)
 
 start(App)
 

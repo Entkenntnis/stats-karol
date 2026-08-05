@@ -1,4 +1,4 @@
-import Sequelize, { DataTypes, Op } from 'sequelize'
+import Sequelize, { DataTypes, Op } from "sequelize"
 
 export default (App, db) => {
   App.db = new Sequelize(db)
@@ -49,6 +49,17 @@ export default (App, db) => {
     },
     value: {
       type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  })
+
+  App.db.ExperimentEvent = App.db.define("ExperimentEvent", {
+    id: {
+      type: DataTypes.STRING(21),
+      primaryKey: true,
+    },
+    event: {
+      type: DataTypes.STRING(256),
       allowNull: false,
     },
   })
