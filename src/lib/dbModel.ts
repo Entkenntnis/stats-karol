@@ -1,10 +1,11 @@
-import Sequelize, { DataTypes, Op } from "sequelize"
+import { Sequelize, DataTypes, Op, type Options } from 'sequelize'
+import type { App } from '../types.ts'
 
-export default (App, db) => {
+export default (App: App, db: Options) => {
   App.db = new Sequelize(db)
   App.db.Op = Op
 
-  App.db.QuestShare = App.db.define("MQuestShare", {
+  App.db.QuestShare = App.db.define('MQuestShare', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -15,12 +16,12 @@ export default (App, db) => {
       allowNull: false,
     },
     content: {
-      type: DataTypes.TEXT("medium"),
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
   })
 
-  App.db.LegacyShare = App.db.define("MShare", {
+  App.db.LegacyShare = App.db.define('MShare', {
     // outdated, but we still support reading from it
     id: {
       type: DataTypes.INTEGER,
@@ -37,7 +38,7 @@ export default (App, db) => {
     },
   })
 
-  App.db.PersistentEvent = App.db.define("PersistentEvent", {
+  App.db.PersistentEvent = App.db.define('PersistentEvent', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -53,7 +54,7 @@ export default (App, db) => {
     },
   })
 
-  App.db.ExperimentEvent = App.db.define("ExperimentEvent", {
+  App.db.ExperimentEvent = App.db.define('ExperimentEvent', {
     id: {
       type: DataTypes.STRING(21),
       primaryKey: true,

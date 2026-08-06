@@ -1,6 +1,7 @@
-import { Server } from 'socket.io'
+import { Server, Socket } from 'socket.io'
+import type { App } from '../types.ts'
 
-export default (App) => {
+export default (App: App) => {
   App.io = new Server(App.server, {
     cors: {
       origin: '*',
@@ -22,7 +23,7 @@ export default (App) => {
     }
   }, 60000)
 
-  App.io.on('connection', (socket) => {
+  App.io.on('connection', (socket: Socket) => {
     const id = socket.id
 
     // Update lastActive on any socket event

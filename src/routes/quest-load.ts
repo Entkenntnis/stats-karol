@@ -1,5 +1,8 @@
-export default (App) => {
-  App.express.get('/quest/load/:id', async (req, res) => {
+import type { Request, Response } from 'express'
+import type { App } from '../types.ts'
+
+export default (App: App) => {
+  App.express.get('/quest/load/:id', async (req: Request, res: Response) => {
     try {
       const publicId = req.params.id
       const entry = await App.db.QuestShare.findOne({ where: { publicId } })

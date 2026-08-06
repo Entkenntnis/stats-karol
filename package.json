@@ -4,12 +4,12 @@
   "description": "Backend Component of Robot Karol Online",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.ts",
+    "check": "tsc"
   },
   "main": "src/index.js",
   "author": "Entkenntnis <karol@arrrg.de>",
   "dependencies": {
-    "escape-html": "^1.0.3",
     "express": "^5.0.0",
     "mariadb": "^3.0.0",
     "sequelize": "^6.0.0",
@@ -17,5 +17,10 @@
   },
   "overrides": {
     "uuid": "11.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.2",
+    "typescript": "^7.0.2"
   }
 }

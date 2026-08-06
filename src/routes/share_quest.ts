@@ -1,5 +1,8 @@
-export default (App) => {
-  App.express.post('/quest_share', async (req, res) => {
+import type { Request, Response } from 'express'
+import type { App } from '../types.ts'
+
+export default (App: App) => {
+  App.express.post('/quest_share', async (req: Request, res: Response) => {
     try {
       if (typeof req.body.content !== 'string') {
         res.status(400).send('invalid input')
@@ -25,7 +28,7 @@ export default (App) => {
     res.status(500).send('internal error')
   })
 
-  async function checkIfPublicIdExists(publicId) {
+  async function checkIfPublicIdExists(publicId: string) {
     const count = await App.db.QuestShare.count({
       where: {
         publicId,

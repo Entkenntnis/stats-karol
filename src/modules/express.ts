@@ -1,15 +1,21 @@
-import express from 'express'
+import express, {
+  type NextFunction,
+  type Request,
+  type Response,
+} from 'express'
 import http from 'http'
+import type { App } from '../types.ts'
 
-export default (App) => {
+export default (App: App) => {
   App.express = express()
+  // socket.io needs dedicated http server
   App.server = http.createServer(App.express)
 
   App.express.use(express.json({ limit: '1mb' }))
   App.express.use(express.urlencoded({ extended: true, limit: '1mb' })) // for parsing application/x-www-form-urlencoded
 
   // manage CORS
-  App.express.use(function (req, res, next) {
+  App.express.use(function (req: Request, res: Response, next: NextFunction) {
     res.header('Access-Control-Allow-Origin', '*')
     res.header(
       'Access-Control-Allow-Methods',
