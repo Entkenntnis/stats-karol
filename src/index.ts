@@ -34,7 +34,3 @@ void (async function start() {
   })
 })()
 
-// if (process.env.SAVE2LOCAL) {
-//   import('./save2local.js').then(({ default: initSave2local }) => initSave2local(App))
-// } else {
-// }

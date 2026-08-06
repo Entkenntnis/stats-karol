@@ -2,7 +2,7 @@
 
 Backend
 
-Setup `secrets.js`:
+Setup `secrets.ts`:
 
 ```
 export default {
