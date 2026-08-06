@@ -17,6 +17,9 @@ export default (App: App) => {
     lines.push('# HELP pageview_total Total number of pageviews')
     lines.push('# TYPE pageview_total counter')
     lines.push(`pageview_total ${App.metrics.pageviewCounter}`)
+    lines.push('# HELP hearts_total Total number of hearts spawn')
+    lines.push('# TYPE hearts_total counter')
+    lines.push(`hearts_total ${App.metrics.heartsCounter}`)
     return lines.join('\n') + '\n'
   }
 }

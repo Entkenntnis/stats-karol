@@ -43,6 +43,7 @@ export default (App: App) => {
 
     socket.on('spawnHeart', () => {
       App.io.volatile.emit('spawnHeart')
+      App.metrics.incrementHearts()
     })
 
     socket.on('disconnect', () => {

@@ -64,6 +64,8 @@ export interface App {
   io: IOServer
   metrics: {
     pageviewCounter: number
+    heartsCounter: number
     incrementPageview: () => void
+    incrementHearts: () => void
   }
 }
