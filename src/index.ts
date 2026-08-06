@@ -12,15 +12,13 @@ import initMetricsRoutes from './routes/metrics.ts'
 import initExperimentEvent from './routes/experiment_event.ts'
 import type { App } from './types.ts'
 
-const preApp: any = {}
+const App = {} as App
 
-initSecrets(preApp)
-initDb(preApp)
-initExpress(preApp)
-initIo(preApp)
-initMetrics(preApp)
-
-const App: App = preApp
+initSecrets(App)
+initDb(App)
+initExpress(App)
+initIo(App)
+initMetrics(App)
 
 initShareQuest(App)
 initQuestLoad(App)
@@ -30,7 +28,7 @@ initMetricsRoutes(App)
 initExperimentEvent(App)
 
 void (async function start() {
-  await App.db.sync()
+  await App.db.Sequelize.sync()
   App.server.listen(3006, () => {
     console.log('server started on port 3006')
   })
