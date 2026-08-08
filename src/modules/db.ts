@@ -1,9 +1,9 @@
 import sqlite3Compat from '../lib/sqlite3-compat.ts'
-import initDbModel from '../lib/dbModel.ts'
+import { initDbModel } from '../lib/db-model.ts'
 import type { App } from '../types.ts'
 import type { Options } from 'sequelize'
 
-export default (App: App) => {
+export function initDb(App: App) {
   const isUberspace = !!process.env.UBERSPACE
 
   if (isUberspace) {

@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initMetricsRoutes(App: App) {
   App.express.post('/pageview', (req: Request, res: Response) => {
     App.metrics.incrementPageview()
     res.send('ok')

@@ -1,7 +1,7 @@
 import { Server, Socket } from 'socket.io'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initIo(App: App) {
   App.io = new Server(App.server, {
     cors: {
       origin: '*',

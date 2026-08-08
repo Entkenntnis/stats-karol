@@ -2,13 +2,13 @@ import { createHash, timingSafeEqual } from 'node:crypto'
 import type { App } from '../types.ts'
 import type { NextFunction, Request, Response } from 'express'
 
-export default (App: App) => {
+export function initExport(App: App) {
   function isAuthorized(token: string | undefined): boolean {
     if (!token) return false
 
     const expected = App.secrets.backend_password
     const expectedHash = createHash('sha256').update(expected).digest()
-    const actualHash = createHash('sha256').update(expected).digest()
+    const actualHash = createHash('sha256').update(token).digest()
 
     return timingSafeEqual(actualHash, expectedHash)
   }
@@ -52,6 +52,7 @@ export default (App: App) => {
           limit: 1000,
           raw: true,
         })
+        res.json(shares)
       } catch (e) {
         console.log(e)
         res.status(500).send('internal error')

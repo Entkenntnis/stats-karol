@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initShareQuest(App: App) {
   App.express.post('/quest_share', async (req: Request, res: Response) => {
     try {
       if (typeof req.body.content !== 'string') {

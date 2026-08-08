@@ -1,7 +1,7 @@
 import fs from 'node:fs'
-import initSecrets from './modules/secrets.ts'
-import initDb from './modules/db.ts'
-import initDbModel from './lib/dbModel.ts'
+import { initSecrets } from './modules/secrets.ts'
+import { initDb } from './modules/db.ts'
+import { initDbModel } from './lib/db-model.ts'
 import sqlite3Compat from './lib/sqlite3-compat.ts'
 import type { App } from './types.ts'
 
@@ -28,7 +28,7 @@ interface CopyableModel {
 void (async () => {
   if (!process.env.UBERSPACE) {
     console.error('This script pulls from the production database.')
-    console.error('Run it with UBERSPACE=1, e.g. via npm run save2local.')
+    console.error('Run it with UBERSPACE=1, e.g. via npm run save-to-local.')
     process.exit(1)
   }
 

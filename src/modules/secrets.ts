@@ -1,6 +1,6 @@
 import secrets from '../../secrets.ts'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initSecrets(App: App) {
   App.secrets = secrets
 }

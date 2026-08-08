@@ -1,6 +1,6 @@
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initMetrics(App: App) {
   App.metrics = {
     pageviewCounter: 0,
     heartsCounter: 0,

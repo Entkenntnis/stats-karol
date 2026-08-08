@@ -6,7 +6,7 @@ import express, {
 import http from 'http'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initExpress(App: App) {
   App.express = express()
   // socket.io needs dedicated http server
   App.server = http.createServer(App.express)

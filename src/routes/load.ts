@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initLoad(App: App) {
   App.express.get('/load/:id', async (req: Request, res: Response) => {
     try {
       const publicId = req.params.id

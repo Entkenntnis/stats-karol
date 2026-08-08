@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.ts",
-    "save2local": "UBERSPACE=1 node src/save2local.ts",
+    "save-to-local": "UBERSPACE=1 node src/save-to-local.ts",
     "check": "tsc"
   },
   "main": "src/index.js",

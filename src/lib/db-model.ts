@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes, Op, type Options } from 'sequelize'
 import type { App } from '../types.ts'
 
-export default (App: App, db: Options) => {
+export function initDbModel(App: App, db: Options) {
   App.db = {} as App['db']
 
   App.db.Sequelize = new Sequelize(db)

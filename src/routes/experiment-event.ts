@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express'
 import type { App } from '../types.ts'
 
-export default (App: App) => {
+export function initExperimentEvent(App: App) {
   App.express.post('/experiment_event', async (req: Request, res: Response) => {
     try {
       const { id, event } = req.body
