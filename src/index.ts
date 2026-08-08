@@ -10,6 +10,8 @@ import initLoad from './routes/load.ts'
 import initPersistentEvent from './routes/persistent_event.ts'
 import initMetricsRoutes from './routes/metrics.ts'
 import initExperimentEvent from './routes/experiment_event.ts'
+import initExport from './routes/export.ts'
+
 import type { App } from './types.ts'
 
 const App = {} as App
@@ -26,6 +28,7 @@ initLoad(App)
 initPersistentEvent(App)
 initMetricsRoutes(App)
 initExperimentEvent(App)
+initExport(App)
 
 void (async function start() {
   await App.db.Sequelize.sync()
@@ -33,4 +36,3 @@ void (async function start() {
     console.log('server started on port 3006')
   })
 })()
-
