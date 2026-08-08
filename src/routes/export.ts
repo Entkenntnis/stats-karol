@@ -6,7 +6,7 @@ export function initExport(App: App) {
   function isAuthorized(token: string | undefined): boolean {
     if (!token) return false
 
-    const expected = App.secrets.backend_password
+    const expected = App.secrets.backend_password || ''
     const expectedHash = createHash('sha256').update(expected).digest()
     const actualHash = createHash('sha256').update(token).digest()
 
