@@ -59,4 +59,20 @@ export function initExport(App: App) {
       }
     },
   )
+
+  App.express.get(
+    '/export/experiments',
+    requireAuth,
+    async (req: Request, res: Response) => {
+      try {
+        const experiments = await App.db.ExperimentEvent.findAll({
+          raw: true,
+        })
+        res.json(experiments)
+      } catch (e) {
+        console.log(e)
+        res.status(500).send('internal error')
+      }
+    },
+  )
 }
