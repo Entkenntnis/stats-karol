@@ -66,6 +66,7 @@ export function initExport(App: App) {
     async (req: Request, res: Response) => {
       try {
         const experiments = await App.db.ExperimentEvent.findAll({
+          attributes: ['event', 'createdAt'],
           raw: true,
         })
         res.json(experiments)
