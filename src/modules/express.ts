@@ -11,6 +11,14 @@ export function initExpress(App: App) {
   // socket.io needs dedicated http server
   App.server = http.createServer(App.express)
 
+  App.express.set('etag', false)
+
+  App.express.use(function (req: Request, res: Response, next: NextFunction) {
+    res.setHeader('Cache-Control', 'no-store')
+    res.setHeader('Pragma', 'no-cache')
+    next()
+  })
+
   App.express.use(express.json({ limit: '1mb' }))
   App.express.use(express.urlencoded({ extended: true, limit: '1mb' })) // for parsing application/x-www-form-urlencoded
 
